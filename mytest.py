@@ -12,18 +12,18 @@ def my_test4():
 
 def my_test5():
     assert 1/1 == 1 
-
-def my_test8():
-    assert 1 + 1 == 2 
-
-def my_test9():
-    assert 1 * 1 == 2 
  
 def my_test6():
     assert 1 - 10 == -9
 
 def my_test7():
     assert 1 + 10 == 11
+
+def my_test8():
+    assert 1 + 1 == 2 
+
+def my_test9():
+    assert 1 * 1 == 2 
 
 if __name__ == "__main__":
     my_test()
