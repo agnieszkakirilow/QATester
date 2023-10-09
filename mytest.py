@@ -1,5 +1,5 @@
-def my_test():
-    assert 1 + 2 == 3 
+def my_test1():
+    assert 1 * 8 == 8
 
 def my_test2():
     assert 1 * 7 == 7
@@ -18,6 +18,12 @@ def my_test6():
 
 def my_test7():
     assert 1 + 10 == 11
+
+def my_test8():
+    assert 1 + 1 == 2 
+
+def my_test9():
+    assert 1 * 1 == 2 
 
 if __name__ == "__main__":
     my_test()
