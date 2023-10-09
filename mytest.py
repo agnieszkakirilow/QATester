@@ -13,6 +13,9 @@ def my_test4():
 def my_test5():
     assert 1/1 == 1 
  
+def my_test6():
+    assert 1-10 == -9
+
 if __name__ == "__main__":
     my_test()
     print("Everything passed")
