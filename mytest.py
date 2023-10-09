@@ -15,6 +15,9 @@ def my_test5():
 
 def my_test8():
     assert 1 + 1 == 2 
+
+def my_test9():
+    assert 1 * 1 == 2 
  
 def my_test6():
     assert 1 - 10 == -9
