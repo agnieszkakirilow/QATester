@@ -8,7 +8,10 @@ def my_test3():
     assert 1-1 == 0  
 
 def my_test4():
-    assert 3 * 8 ==24   
+    assert 3 * 8 ==24  
+
+def my_test5():
+    assert 1/1 == 1 
  
 if __name__ == "__main__":
     my_test()
