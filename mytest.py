@@ -26,6 +26,6 @@ def my_test9():
     assert 1 * 1 == 2 
 
 if __name__ == "__main__":
-    my_test()
+    my_test1()
     print("Everything passed")
 
