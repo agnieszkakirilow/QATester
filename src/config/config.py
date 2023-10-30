@@ -1,4 +1,5 @@
 import os
+import sys
 import json
 from typing import Any
 
@@ -20,20 +21,19 @@ print(config.env)
 
 
 class DictConfigProvider():
-    def __init__(self, input_values: dict) -> None:
-         super().__init__()
+    def __init__(self, input_values: dict) -> None:  # it does have return type (better for error handling)
+         super().__init__()  # why like this, usually super() is used why class inherits after another class
          self.values = input_values
 
-    
     def get(self, item_name: str) -> Any:
         return self.values[item_name]
 
 
 class OSConfigProvider():
     @staticmethod
-    def get(item_name: str) -> Any:
+    def get(item_name: str) -> Any:  # what does Any mean?
         value = os.getenv(item_name)
-        return value
+        return value 
 
 class JSONConfigProvider():
     @staticmethod
@@ -55,8 +55,11 @@ class ConfigHard:
         # register parameters block
         self._register("USERNAME")
         self._register("USER")
+        self._register("URLTEST")
         self._register("BROWSER")
         self._register("URL")
+        self._register('response_ok')
+        
 
     def get(self, item_name: str)-> Any:
         if item_name not in self.conf_dict:
@@ -81,7 +84,8 @@ class ConfigHard:
         raise ValueError(f'{item_name} name is missing in config providers')
 
 
-dict_confprovider = DictConfigProvider({'USERNAME': 'bla', 'USER': 'ble', 'BROWSER': 'chrome', 'URL': 'http://google.com', 'LALA': 'pala'})
+dict_confprovider = DictConfigProvider({'USERNAME': 'bla', 'USER': 'ble', 'BROWSER': 'chrome', 'URL': 'https://api.github.com/search/repositories', 
+                                        'LALA': 'pala', 'URLTEST': 'http://www.google.pl', 'response_ok': 200})
 print('....config_all....')
 config_all = ConfigHard([OSConfigProvider, JSONConfigProvider, dict_confprovider])
 print('....config_two....')
@@ -90,6 +94,9 @@ print('....config_two....')
 config_one = ConfigHard([dict_confprovider])
 #config = ConfigHard([OSConfigProvider, JSONConfigProvider])
 
-print(f'get paramter "USER": {config_all.get("USER")}')
-print(f'get paramter "BROWSER": {config_all.get("BROWSER")}')
+print(f'get parameter "USER": {config_all.get("USER")}')
+print(f'get parameter "BROWSER": {config_all.get("BROWSER")}')
+print(f'get parameter "URL": {config_all.get("URL")}')
+print(sys.executable)
+print(sys.path)
 # print(f'get paramter "LALA": {config_all.get("LALA")}')
