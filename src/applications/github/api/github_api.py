@@ -13,7 +13,7 @@ class GitHubAPI:
         
         body = response.json()
 
-        print(f'response retrieved: {body}')
+        print(f'response retrieved')
         
         return body
     
@@ -21,5 +21,5 @@ class GitHubAPI:
         response = requests.get("https://api.github.com/search/repositories", params={'q':commit_hash})
         print(f'sent request to {response}')
         body = response.json(0)
-        print(f'response retrieved: {body}')
+        print(f'response retrieved')
         return body
